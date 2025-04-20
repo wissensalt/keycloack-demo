@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: keycloak-demo
+  thymeleaf:
+    enabled: true
+    mode: HTML
+    prefix: classpath:/templates/
+    suffix: .html
+    check-template: true
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/stealth
+        registration:
+          keycloak:
+            client-id: education-platform
+            client-secret: JUaljNwn5KBe6LANjQddULgu3Qp6qBOi
+            scope: openid, profile, email
+            redirect-uri: "http://localhost:8081/login/oauth2/code/keycloak"
